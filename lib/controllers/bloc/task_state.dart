@@ -1,4 +1,4 @@
-part of 'task_cubit.dart';
+part of 'task_bloc.dart';
 
 @immutable
 sealed class TaskState extends Equatable{
@@ -12,7 +12,6 @@ sealed class TaskState extends Equatable{
 
 final class TaskInitial extends TaskState {
   TaskInitial() : super([]);
-
 }
 final class TaskUpdate extends TaskState {
   const TaskUpdate(super.taskList);
