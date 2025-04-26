@@ -24,7 +24,7 @@ class Product extends Equatable {
     return Product(
       id: jsonDate['id'],
       title: jsonDate['title'],
-      price: jsonDate['price'],
+      price: jsonDate['price'].toDouble(),
       description: jsonDate['description'],
       category: jsonDate['category'],
       image: jsonDate['image'],
