@@ -1,4 +1,4 @@
-import 'package:bloc_statemanagement/controller/product_cubit.dart';
+import 'package:bloc_statemanagement/controller/bloc/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: BlocProvider(
-        create: (context) => ProductCubit()..getProducts(),
+        create: (context) => ProductBloc()..add(FetchProducts()),
         child: const MyHomePage(title: 'BLoC with API'),
       ),
     );
@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: BlocBuilder<ProductCubit, ProductState>(
+      body: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) {
           switch (state) {
             case ProductLoading():
